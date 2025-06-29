@@ -1,0 +1,12 @@
+Flask==3.0.3
+gunicorn==21.2.0
+
+# For ML model prediction
+scikit-learn==1.4.2
+pandas==2.2.2
+numpy==1.26.4
+
+# Optional: if used in notebook
+jupyter
+matplotlib
+seaborn
