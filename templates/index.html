@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Risk Analyzer</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Loan Risk Analyzer</h2>
+
+        <form method="POST">
+            <label>Monthly Income (₹)</label>
+            <input type="number" name="income" required>
+
+            <label>Loan Amount (₹)</label>
+            <input type="number" name="loan" required>
+
+            <label>Loan Term (Months)</label>
+            <input type="number" name="loan_term" required>
+
+            <label>Credit History</label>
+            <select name="credit_history" required>
+                <option value="1">1 (Good)</option>
+                <option value="0">0 (Bad)</option>
+            </select>
+
+            <label>Gender</label>
+            <select name="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+
+            <label>Married</label>
+            <select name="married" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label>Dependents</label>
+            <select name="dependents" required>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3+">3+</option>
+            </select>
+
+            <label>Education</label>
+            <select name="education" required>
+                <option value="Graduate">Graduate</option>
+                <option value="Not Graduate">Not Graduate</option>
+            </select>
+
+            <label>Self Employed</label>
+            <select name="self_employed" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label>Property Area</label>
+            <select name="property_area" required>
+                <option value="Urban">Urban</option>
+                <option value="Semiurban">Semiurban</option>
+                <option value="Rural">Rural</option>
+            </select>
+
+            <button type="submit">Check Loan Approval</button>
+        </form>
+
+        {% if prediction is not none %}
+            <div class="result">
+                <p>Loan Approved: {{ 'Yes ✅' if prediction else 'No ❌' }}</p>
+                <p>Risk Level: 
+                    <span style="color: {% if risk == 'Low Risk' %}green{% elif risk == 'Medium Risk' %}orange{% else %}red{% endif %};">
+                        {{ risk }}
+                    </span>
+                </p>
+                <p>Loan Approval Probability: <strong>{{ (proba * 100) | round(2) }}%</strong></p>
+            </div>
+        {% endif %}
+
+        <p>🎯 Model Accuracy: <strong>{{ accuracy }}%</strong></p>
+        <p><a href="/logs">📊 View Prediction Logs</a></p>
+    </div>
+</body>
+</html>
