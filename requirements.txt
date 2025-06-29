@@ -1,12 +1,13 @@
+# ---- Core Web App ----
 Flask==3.0.3
 gunicorn==21.2.0
 
-# For ML model prediction
+# ---- ML / Data Stack ----
 scikit-learn==1.4.2
 pandas==2.2.2
-numpy==1.26.4
+numpy==1.26.4          # latest stable; avoids rc/beta issues
 
-# Optional: if used in notebook
-jupyter
-matplotlib
-seaborn
+# ---- Optional: notebooks & plotting (not needed at runtime) ----
+jupyter==1.0.0
+matplotlib==3.8.4
+seaborn==0.13.2
