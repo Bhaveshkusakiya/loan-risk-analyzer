@@ -1,3 +1,5 @@
 Timestamp,ApplicantIncome,LoanAmount,Loan_Amount_Term,Credit_History,Gender_Male,Married_Yes,Dependents_1,Dependents_2,Dependents_3+,Education_Not Graduate,Self_Employed_Yes,Property_Area_Semiurban,Property_Area_Urban,Prediction,Risk
 2025-06-29 20:08:08.242268,50000.0,500000.0,10.0,1.0,1,1,0,1,0,0,1,0,1,1,High Risk
 2025-06-29 20:08:55.803451,10000.0,500000.0,12.0,1.0,1,1,0,0,1,0,1,0,0,1,High Risk
+2026-01-30 21:01:54.241476,50000.0,500000.0,12.0,1.0,1,0,1,0,0,0,1,0,1,0,High Risk
+2026-01-30 21:07:50.881513,50000.0,500000.0,12.0,1.0,1,1,0,0,0,0,1,0,1,1,High Risk

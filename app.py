@@ -84,8 +84,11 @@ def index():
             final_input = [input_data.get(col, 0) for col in model.feature_names_in_]
 
             # STEP 4: Prediction and probability
-            prediction = model.predict([final_input])[0]
-            proba = model.predict_proba([final_input])[0][1]
+            final_df = pd.DataFrame([final_input], columns=model.feature_names_in_)
+
+            prediction = model.predict(final_df)[0]
+            proba = model.predict_proba(final_df)[0][1]
+
             risk = classify_risk(income, loan)
 
             # STEP 5: Save to log
